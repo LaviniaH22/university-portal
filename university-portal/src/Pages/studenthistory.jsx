@@ -7,11 +7,11 @@ function StudentHistory() {
     <main>
         <Link to="/" className="homeLink" aria-label="Back to home"><img src={homeLogo} alt="Home logo" /></Link>
         <h1 id="page-title">Student Course History</h1>
-        <div className="searchBar">
+        <form className="searchBar">
             <p> Campus-Wide ID</p>
-            <input type="text" placeholder="XXXXXXXXXX" />
-            <button>View Course History</button>
-        </div>
+            <input type="text" placeholder="XXXXXXXXXX" pattern="[0-9]{10}" required onInvalid={(e) =>e.target.setCustomValidity("Invalid Format Correct to follow: ##########")}/>
+            <button type="submit">View Course History</button>
+        </form>
         <table className="classesTable">
             <thead>
                 <tr>

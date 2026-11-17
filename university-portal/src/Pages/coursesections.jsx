@@ -7,11 +7,11 @@ function CourseSections() {
     <main>
         <Link to="/" className="homeLink" aria-label="Back to home"><img src={homeLogo} alt="Home logo" /></Link>
         <h1 id="page-title">Find Course Sections</h1>
-        <div className="searchBar">
+        <form className="searchBar">
             <p> Course Number</p>
-            <input type="text" placeholder="CPSC 332" />
-            <button>Search Sections</button>
-        </div>
+            <input type="text" placeholder="CPSC 332" pattern="[A-Za-z]{3,4} [0-9]{3}[A-Za-z]?" required onInvalid={(e) =>e.target.setCustomValidity("Invalid Format Correct to follow: AAAA ###a")}/>
+            <button type="submit">Search Sections</button>
+        </form>
         <table className="classesTable">
             <thead>
                 <tr>
