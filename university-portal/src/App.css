@@ -114,8 +114,14 @@ justify-content: center;
   text-align: center;
   
 }
+<<<<<<< HEAD
 .navContainer > a {
   text-decoration: none;
   color: white;
   font-size: inherit;
+=======
+a {
+  text-decoration: none;
+  color: inherit;
+>>>>>>> d366d590ffdab0c363ea92f3bb0ab81c362e60c0
 }
