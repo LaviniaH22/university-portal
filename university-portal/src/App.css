@@ -113,3 +113,6 @@ justify-content: center;
   text-align: center;
   
 }
+navButtons h3 {
+ text-decoration: none;
+}
