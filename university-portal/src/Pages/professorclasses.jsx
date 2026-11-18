@@ -5,18 +5,17 @@ import "../App.css";
 import homeLogo from "../assets/home-svgrepo-com.svg";
 
 function ProfessorClasses() {
-    const [pssn, setPssn] = useState('');
-    let waitIndicator = document.querySelector('p[name="waitidacator"]');
+    const [waitIndicator, setWaitIndicator] = useState(null);
     let passedvalue;
+    const [classData, setClassData] = useState([]);
     const handleSubmit = (e) => {
+        const storedSSN = e.target.elements.pssn.value;
         // Prevent the default form submission behavior
         e.preventDefault();
-        //store the value of the input field in a variable
-        setPssn(e.target.elements.pssn.value);
         //created formmated to pass to the backend
-        passedvalue = "pc " + pssn;
+        passedvalue = "pc " + storedSSN;
         //update the wait indicator to show that the search is in progress
-        waitIndicator.textContent = "Searching...";
+        setWaitIndicator("Searching for classes...");
         //pass the value to the backend
         handleCallnResponse(passedvalue);
     }
@@ -34,21 +33,11 @@ function ProfessorClasses() {
         ];
         //inplace of php call an alert.
         alert(`Query sent to backend: ${query}`)
-        //map the response to the table
-        classTable.innerHTML = ""; // Clear existing rows
-        // Populate the table with new data (example)
-        for (let i = 0; i < numrows; i++) {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${sampleData[i].courseTitle}</td>
-                <td>${sampleData[i].room}</td>
-                <td>${sampleData[i].days}</td>
-                <td>${sampleData[i].times}</td>
-            `;
-            classTable.appendChild(row);
-        }
+        console.log(`Query sent to backend: ${query}`);
+        // Update the class data state with the sample data
+        setClassData(sampleData);
         // Update the wait indicator
-        waitIndicator.textContent = "";
+        setWaitIndicator("");
     }
   return (
     <main>
@@ -58,7 +47,7 @@ function ProfessorClasses() {
             <p> Professor's SSN</p>
             <input type="text" placeholder="XXX-XX-XXXX" name="pssn" pattern="[0-9]{3}-[0-9]{2}-[0-9]{4}" required onInvalid={(e) =>e.target.setCustomValidity("Invalid Format Correct to follow: ###-##-####")}/>
             <button type="submit">Search Classes</button>
-            <p name="waitidacator"></p>
+            <p>{waitIndicator}</p>
         </form>
         <table className="classesTable">
             <thead>
@@ -70,7 +59,14 @@ function ProfessorClasses() {
                 </tr>
             </thead>
             <tbody>
-                {/* Table rows would be populated with class data */}
+            {classData.map((course) => (
+                <tr key={course.id}>
+                <td>{course.courseTitle}</td>
+                <td>{course.room}</td>
+                <td>{course.days}</td>
+                <td>{course.times}</td>
+                </tr>
+            ))}
             </tbody>
         </table>
     </main>
