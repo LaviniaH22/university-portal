@@ -3,7 +3,7 @@ import HomeLink from "../Homelink";
 import { useState } from 'react';
 function CourseSections() {
     const [waitIndicator, setWaitIndicator] = useState(null);
-    const [sectionNumber, setSectionNumber] = useState('');
+    const [sectionData, setSectionData] = useState([]);
     let passedvalue;
     const handleSubmit = (e) => {
         // Get the value of the course number input field
@@ -58,8 +58,8 @@ function CourseSections() {
                 </tr>
             </thead>
             <tbody>
-                {classData.map((section) => (
-                    <tr key={section.id}>
+                {sectionData.map((section) => (
+                    <tr key={section.section}>
                         <td>{section.section}</td>
                         <td>{section.room}</td>
                         <td>{section.days}</td>
