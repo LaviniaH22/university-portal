@@ -20,7 +20,6 @@ function ProfessorClasses() {
     }
     const handleCallnResponse=(query)=>{
         let classTable = document.querySelector('.classesTable tbody');
-        let numrows = 1;
         //sample data json
         let sampleData = [
             {
