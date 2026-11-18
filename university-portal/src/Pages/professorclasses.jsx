@@ -33,7 +33,7 @@ function ProfessorClasses() {
             }
         ];
         //inplace of php call an alert.
-        alert('Query sent to backend:', query);
+        alert(`Query sent to backend: ${query}`)
         //map the response to the table
         classTable.innerHTML = ""; // Clear existing rows
         // Populate the table with new data (example)
