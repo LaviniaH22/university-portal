@@ -12,8 +12,7 @@ function ProfessorClasses() {
         // Prevent the default form submission behavior
         e.preventDefault();
         //store the value of the input field in a variable
-        setPssn(e.target.element.pssn.value);
-        alert('Submitted SSN:', pssn);
+        setPssn(e.target.elements.pssn.value);
         //created formmated to pass to the backend
         passedvalue = "pc " + pssn;
         //update the wait indicator to show that the search is in progress
