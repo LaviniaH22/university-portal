@@ -1,9 +1,7 @@
-import { Link } from "react-router";
 import { useState } from 'react'
 import {useEffect} from 'react'
 import "../App.css";
-import homeLogo from "../assets/home-svgrepo-com.svg";
-
+import HomeLink from "../Homelink";
 function ProfessorClasses() {
     const [waitIndicator, setWaitIndicator] = useState(null);
     let passedvalue;
@@ -41,7 +39,7 @@ function ProfessorClasses() {
     }
   return (
     <main>
-        <Link to="/" className="homeLink" aria-label="Back to home"><img src={homeLogo} alt="Home logo" /></Link>
+        <HomeLink />
         <h1 id="page-title">Find Professors' Classes</h1>
         <form className="searchBar" onSubmit={handleSubmit}>
             <p> Professor's SSN</p>

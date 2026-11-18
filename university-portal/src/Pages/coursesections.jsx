@@ -1,11 +1,10 @@
-import { Link } from "react-router";
 import "../App.css";
-import homeLogo from "../assets/home-svgrepo-com.svg";
+import HomeLink from "../Homelink";
 
 function CourseSections() {
   return (
     <main>
-        <Link to="/" className="homeLink" aria-label="Back to home"><img src={homeLogo} alt="Home logo" /></Link>
+        <HomeLink />
         <h1 id="page-title">Find Course Sections</h1>
         <form className="searchBar">
             <p> Course Number</p>
