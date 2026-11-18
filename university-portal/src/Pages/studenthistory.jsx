@@ -1,5 +1,6 @@
 import "../App.css";
 import HomeLink from "../Homelink";
+import useState from 'react';
 function StudentHistory() {
     const [waitIndicator, setWaitIndicator] = useState(null);
     const [classData, setClassData] = useState([]); 
