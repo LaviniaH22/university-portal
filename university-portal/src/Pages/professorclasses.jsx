@@ -17,7 +17,8 @@ function ProfessorClasses() {
         //update the wait indicator to show that the search is in progress
         setWaitIndicator("Searching for classes...");
         //pass the value to the backend
-        handleCallnResponse(passedvalue);
+        //handleCallnResponse(passedvalue);
+        setTimeout(() => handleCallnResponse(passedvalue), 500);
     }
     const handleCallnResponse=(query)=>{
         let classTable = document.querySelector('.classesTable tbody');
@@ -33,7 +34,6 @@ function ProfessorClasses() {
         ];
         //inplace of php call an alert.
         alert(`Query sent to backend: ${query}`)
-        console.log(`Query sent to backend: ${query}`);
         // Update the class data state with the sample data
         setClassData(sampleData);
         // Update the wait indicator
