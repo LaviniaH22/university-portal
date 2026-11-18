@@ -40,11 +40,11 @@ function StudentHistory() {
             <input type="text" 
             name="campusWideID"
             placeholder="XXXXXXXXXX" 
-            pattern="[0-9]{10}" 
+            pattern="[0-9]{9}" 
             required 
             onInvalid={(e) =>
             e.target.setCustomValidity(
-                "Invalid Format Correct to follow: ##########")}/>
+                "Invalid Format Correct to follow: #########")}/>
             <button type="submit">View Course History</button>
             <p>{waitIndicator}</p>
         </form>
