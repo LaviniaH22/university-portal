@@ -19,7 +19,6 @@ function CourseSections() {
         setTimeout(() => handleCallnResponse(passedvalue), 500);
     };
     const handleCallnResponse = (query) => {
-        let sectionTable = document.querySelector('.classesTable tbody');
         //sample data json
         let sampleData = [
             {
@@ -43,7 +42,14 @@ function CourseSections() {
         <h1 id="page-title">Find Course Sections</h1>
         <form className="searchBar" onSubmit={handleSubmit}>
             <p> Course Number</p>
-            <input type="text" placeholder="CPSC 332" name="courseNumber" pattern="[A-Za-z]{3,4} [0-9]{3}[A-Za-z]?" required onInvalid={(e) =>e.target.setCustomValidity("Invalid Format Correct to follow: AAAA ###a")}/>
+            <input type="text" 
+            placeholder="CPSC 332" 
+            name="courseNumber" 
+            pattern="[A-Za-z]{3,4} [0-9]{3}[A-Za-z]?" 
+            required 
+            onInvalid={(e) =>
+            e.target.setCustomValidity(
+                "Invalid Format Correct to follow: AAAA ###a")}/>
             <button type="submit">Search Sections</button>
             <p>{waitIndicator}</p>
         </form>
