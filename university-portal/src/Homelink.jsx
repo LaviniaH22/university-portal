@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import homeLogo from "../assets/home-svgrepo-com.svg";
+import homeLogo from "./assets/home-svgrepo-com.svg";
 
 export default function HomeLink() {
   return (

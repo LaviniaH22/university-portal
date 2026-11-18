@@ -4,7 +4,6 @@ import { useState } from 'react';
 function CourseSections() {
     const [waitIndicator, setWaitIndicator] = useState(null);
     const [sectionData, setSectionData] = useState([]);
-    let passedvalue;
     const handleSubmit = (e) => {
         // Get the value of the course number input field
         const storedCourseNumber = e.target.elements.courseNumber.value;
@@ -13,7 +12,7 @@ function CourseSections() {
        //update the wait indicator to show that the search is in progress
         setWaitIndicator("Searching for course sections...");
         //created formmated to pass to the backend
-        passedvalue = "cs " + storedCourseNumber;  
+        const passedvalue = "cs " + storedCourseNumber;
         //pass the value to the backend
         //handleCallnResponse(passedvalue);
         setTimeout(() => handleCallnResponse(passedvalue), 500);
@@ -49,7 +48,9 @@ function CourseSections() {
             required 
             onInvalid={(e) =>
             e.target.setCustomValidity(
-                "Invalid Format Correct to follow: AAAA ###a")}/>
+                "Invalid Format Correct to follow: AAAA ###a")}
+            onInput={(event) => event.currentTarget.setCustomValidity("")}
+            />
             <button type="submit">Search Sections</button>
             <p>{waitIndicator}</p>
         </form>
