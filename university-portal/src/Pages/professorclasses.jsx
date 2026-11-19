@@ -48,7 +48,8 @@ function ProfessorClasses() {
             required 
             onInvalid={(e) =>
             e.target.setCustomValidity(
-                "Invalid Format Correct to follow: ###-##-####")}/>
+                "Invalid Format Correct to follow: ###-##-####")}
+            onInput={(e) => e.target.setCustomValidity("")}/>
             <button type="submit">Search Classes</button>
             <p>{waitIndicator}</p>
         </form>

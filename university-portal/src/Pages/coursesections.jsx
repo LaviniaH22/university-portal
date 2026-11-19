@@ -49,8 +49,7 @@ function CourseSections() {
             onInvalid={(e) =>
             e.target.setCustomValidity(
                 "Invalid Format Correct to follow: AAAA ###a")}
-            onInput={(event) => event.currentTarget.setCustomValidity("")}
-            />
+            onInput={(event) => event.currentTarget.setCustomValidity("")}/>
             <button type="submit">Search Sections</button>
             <p>{waitIndicator}</p>
         </form>

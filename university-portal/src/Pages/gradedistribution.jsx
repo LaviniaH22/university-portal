@@ -59,7 +59,8 @@ function GradeDistribution() {
             placeholder="01" 
             pattern="[0-9]{2}" 
             required onInvalid={
-                (e) =>e.target.setCustomValidity("Invalid Format Correct to follow: ##")}/>
+                (e) =>e.target.setCustomValidity("Invalid Format Correct to follow: ##")}
+            onInput={(e) => e.target.setCustomValidity("")}/>
             <button type="submit">View Grades</button>
             <p>{waitIndicator}</p>
         </form>
